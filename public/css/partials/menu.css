@@ -1,0 +1,119 @@
+/* menu */
+/* line 3, ../../sass/partials/menu.scss */
+#st-trigger-effects > button {
+  z-index: 999;
+  background: url(../images/add.png) no-repeat;
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 50px;
+  width: 50px;
+  border: none;
+  cursor: pointer;
+}
+
+/* line 15, ../../sass/partials/menu.scss */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+
+/* line 19, ../../sass/partials/menu.scss */
+.clearfix:after {
+  clear: both;
+}
+
+/* line 22, ../../sass/partials/menu.scss */
+.clearfix {
+  *zoom: 1;
+}
+
+/* Responsive menu */
+/* line 27, ../../sass/partials/menu.scss */
+.responsive-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: #3c3c3c;
+  text-align: right;
+  border-bottom: 2px solid #06d2ed;
+  z-index: 999;
+  /* a verfier avec la page index */
+  /* margin-bottom: 17px;*/
+}
+
+/* line 38, ../../sass/partials/menu.scss */
+.responsive-menu .trigger,
+.responsive-menu h2 {
+  display: none;
+}
+
+/* line 41, ../../sass/partials/menu.scss */
+.responsive-menu ul {
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  background: #3c3c3c;
+  list-style-type: none;
+  text-align: right;
+  border-bottom: 2px solid #06d2ed;
+}
+
+/* line 52, ../../sass/partials/menu.scss */
+.responsive-menu ul li {
+  display: inline;
+}
+
+/* line 55, ../../sass/partials/menu.scss */
+.responsive-menu ul li a {
+  font-size: 1.5em;
+  display: inline-block;
+  padding: 10px;
+  color: white;
+  text-decoration: none;
+}
+
+/* line 62, ../../sass/partials/menu.scss */
+.responsive-menu ul li a:hover {
+  cursor: pointer;
+  background-color: #06d2ed;
+}
+
+@media only screen and (max-width: 568px) {
+  /* line 67, ../../sass/partials/menu.scss */
+  .responsive-menu {
+    text-align: center;
+  }
+
+  /* line 70, ../../sass/partials/menu.scss */
+  .responsive-menu .trigger {
+    display: block;
+    cursor: pointer;
+    color: #06d2ed;
+    padding: 10px;
+    font-size: 1em;
+    font-weight: bold;
+    background: #3c3c3c url("../images/responsive-menu-icon.png") 97% 50% no-repeat;
+  }
+
+  /* line 79, ../../sass/partials/menu.scss */
+  .responsive-menu.open .trigger {
+    background-color: #06d2ed;
+  }
+
+  /* line 83, ../../sass/partials/menu.scss */
+  .responsive-menu ul li a,
+  .responsive-menu ul li {
+    display: block;
+  }
+
+  /* line 86, ../../sass/partials/menu.scss */
+  .responsive-menu ul {
+    display: none;
+  }
+}

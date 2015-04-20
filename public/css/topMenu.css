@@ -1,0 +1,44 @@
+/* General styles for all menus */
+/* line 2, ../sass/topMenu.scss */
+#top_menu {
+  background: #3c3c3c;
+  position: fixed;
+  border-bottom: 4px solid #47a3da;
+  /* animation transition*/
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+  height: 50%;
+  /*150px;*/
+  left: 0;
+  z-index: 1;
+  overflow: scroll;
+  overflow-x: hidden;
+}
+
+/* css in interaction with jquery */
+/* line 25, ../sass/topMenu.scss */
+.cbp-spmenu-top {
+  top: -50%;
+  /*-150px;*/
+}
+
+/* line 29, ../sass/topMenu.scss */
+.cbp-spmenu-top.cbp-spmenu-open {
+  top: 0px;
+}
+
+/* Example media queries */
+@media screen and (max-width: 55.1875em) {
+  /* line 38, ../sass/topMenu.scss */
+  #top_menu {
+    font-size: 75%;
+    height: 110px;
+  }
+
+  /* line 43, ../sass/topMenu.scss */
+  .cbp-spmenu-top {
+    top: -110px;
+  }
+}

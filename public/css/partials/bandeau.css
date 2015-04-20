@@ -1,0 +1,57 @@
+@charset "CP850";
+/* bandeau */
+/* line 2, ../../sass/partials/bandeau.scss */
+#bandeau_centre {
+  height: 65px;
+  width: 800px;
+  margin: auto;
+  background-image: url("../images/titre.png");
+  background-repeat: no-repeat;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+/* line 13, ../../sass/partials/bandeau.scss */
+.bandeau_titre {
+  float: left;
+}
+
+/* line 18, ../../sass/partials/bandeau.scss */
+#bandeau h1 {
+  margin: 0;
+  padding-left: 0.8em;
+  padding-top: 0.3em;
+  color: rgba(0, 0, 0, 0.4);
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+  font-weight: 300;
+  font-size: 3em;
+}
+
+/* line 29, ../../sass/partials/bandeau.scss */
+#bandeau {
+  height: 85px;
+  /* Anciens navigateurs */
+  background: #06d2ed url("gradient-bg.png") repeat-y center;
+  -o-background-size: 100% 100%;
+  -moz-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+  background-size: 100% 100%;
+  /* Internet Explorer */
+  *background: #06d2ed;
+  background: #06d2ed;
+  filter: progid:DXImageTransform.Microsoft.gradient(gradientType=1, startColorstr=#ffbc0000, endColorstr=#ff06d2ed);
+}
+
+@media all and (min-width: 0px) {
+  /* line 56, ../../sass/partials/bandeau.scss */
+  #bandeau {
+    /* Opera */
+    background: #06d2ed url("gradient-bg.svg");
+    /* Navigateurs récents */
+    background-image: -webkit-gradient(linear, left top, right top, from(#c41414), to(#61b6ff));
+    background-image: -webkit-linear-gradient(left, #c41414, #61b6ff);
+    background-image: -moz-linear-gradient(left, #c41414, #61b6ff);
+    background-image: -o-linear-gradient(left, #c41414, #61b6ff);
+    background-image: linear-gradient(left, #c41414, #61b6ff);
+  }
+}
