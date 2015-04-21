@@ -50,10 +50,12 @@ class AuthController extends BaseController {
         $nom = Input::get('nom');
         $passe = Input::get('password');
 
-        if(Auth::attempt(array('username' => $nom, 'password' => $passe)))
-            echo 'Vous êtes maintenant connecté '.Auth::user()->username;
+        if(Auth::attempt(array('username' => $nom, 'password' => $passe), Input::get('souvenir')))
+            //echo 'Vous êtes maintenant connecté '.Auth::user()->username;
+            return Redirect::back()
+                ->with('flash_notice', 'Vous avez été correctement connecté avec le pseudo ' . Auth::user()->username);
         else
-            echo 'Eche de la connexion';
+            return Redirect::refresh()->with('flash_error', 'Pseudo ou mot de passe non correct !')->withInput();
     }
 
     /**
@@ -70,9 +72,9 @@ class AuthController extends BaseController {
             $user->email = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
             $user->save();
-            return Redirect::route('accueil')->with('flash_notice', 'Votre compte a été créé.');
+            return Redirect::back()->with('flash_notice', 'Votre compte a été créé.');
         }
-        return Redirect::to('guest/inscription')->withErrors($v)->withInput();
+        return Redirect::refresh()->withErrors($v)->withInput();
     }
 
     /**
