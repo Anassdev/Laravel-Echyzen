@@ -71,10 +71,27 @@ class AuthController extends BaseController {
             $user->username = Input::get('username');
             $user->email = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
+
+            $user->confirmation_code = str_random(30);
+            $data = array( 'confirmation_code' => $user->confirmation_code);
+            Mail::send('mail.layout', $data, function($message) {
+                $message->to(Input::get('email'), Input::get('username'))
+                    ->subject('Echyzen : Verify your email address');
+            });
             $user->save();
             return Redirect::back()->with('flash_notice', 'Votre compte a été créé.');
         }
         return Redirect::refresh()->withErrors($v)->withInput();
+    }
+
+    /**
+     * Effectue l'activation du compte après vérification du token
+     *
+     * @return Redirect
+     */
+    public function getVerify()
+    {
+        return "lol";
     }
 
     /**
