@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html >
+<html ng-app="EchyzenApp">
 	<head>
 		<title>Echyzen - Portfolio @yield('title')</title>
 		<meta name="description" content="portofolio, Tutoriels/astuces et galerie 3D/2D!!!" />
@@ -23,7 +23,10 @@
 			<meta name="msapplication-TileImage" content="{{ asset('images/icon_microsoft.png') }}" />
 			<link rel="apple-touch-icon" href= "{{ asset('js/modernizr.custom.js') }}" />
 
-
+            <!-- Angular JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-resource.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-cookies.min.js"></script>
 		@show
 	</head>
 
