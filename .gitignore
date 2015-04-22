@@ -12,5 +12,6 @@ Thumbs.db
 .idea
 .git
 .gitattributes
+/app/config/mail.php
 
 
