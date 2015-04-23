@@ -50,12 +50,12 @@ class AuthController extends BaseController {
         $nom = Input::get('nom');
         $passe = Input::get('password');
 
-        if(Auth::attempt(array('username' => $nom, 'password' => $passe), Input::get('souvenir')))
+        if(Auth::attempt(array('username' => $nom, 'password' => $passe, 'confirmed' => 1), Input::get('souvenir')))
             //echo 'Vous êtes maintenant connecté '.Auth::user()->username;
             return Redirect::back()
                 ->with('flash_notice', 'Vous avez été correctement connecté avec le pseudo ' . Auth::user()->username);
         else
-            return Redirect::refresh()->with('flash_error', 'Pseudo ou mot de passe non correct !')->withInput();
+            return Redirect::refresh()->with('flash_error', 'Pseudo/mot de passe non correct ou mail non validé !')->withInput();
     }
 
     /**
@@ -89,9 +89,25 @@ class AuthController extends BaseController {
      *
      * @return Redirect
      */
-    public function getVerify()
+    public function getVerify($confirmation_code)
     {
-        return "lol";
+        if( ! $confirmation_code)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user = User::whereConfirmationCode($confirmation_code)->first();
+
+        if ( ! $user)
+        {
+            throw new InvalidConfirmationCodeException;
+        }
+
+        $user->confirmed = 1;
+        $user->confirmation_code = null;
+        $user->save();
+
+        return Redirect::route('auth.get.login')->with('flash_notice', 'Votre mail a été validé vous pouvez vous connecter.');
     }
 
     /**
