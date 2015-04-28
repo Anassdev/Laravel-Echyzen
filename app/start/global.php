@@ -79,3 +79,15 @@ App::down(function()
 */
 
 require app_path().'/filters.php';
+
+/*
+|--------------------------------------------------------------------------
+| Require The Blade Extension File
+|--------------------------------------------------------------------------
+|
+| Next we will load the Blade Extension file for the application. This gives us
+| a nice separate location to store our view extension.
+|
+*/
+
+require app_path().'/blade_extensions.php';
