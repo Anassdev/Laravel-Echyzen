@@ -5,8 +5,13 @@ class NewsTableSeeder extends Seeder {
     {
         DB::table('news')->delete();
 
-        $rubrique = Rubrique::all();
-        $image = Image::all();
+        $rubrique = Rubrique::orderBy('id')->get(array('id'));
+        /*
+        *  die($rubrique[0]->id . ' : ' . $rubrique[0]->nom . '\n'
+        *    . $rubrique[1]->id . ' : ' . $rubrique[1]->nom
+        *  );
+        */
+        $image = Image::orderBy('id')->get(array('id'));
 
          News::create(array(
              'image_id' => $image[2]->id,
