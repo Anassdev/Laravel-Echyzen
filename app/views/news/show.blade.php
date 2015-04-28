@@ -80,3 +80,4 @@
 @foreach($count as $c)
     <p>{{ $c->count }} : {{ $c->nom }}</p>
 @endforeach
+

@@ -19,5 +19,20 @@
     <li>{{ link_to('auth/login', 'Connexion') }}</li>
     @endif
     <p>Ok sa fonctionne</p>
+
+    {{-- Js TinyMCE --}}
+    <script type="text/javascript" src="{{ asset('js/tinymce/js/tinymce/tinymce.min.js') }}"></script>
+    <script>
+    tinymce.init({
+        menubar : false,
+        selector: "textarea",
+        plugins: [
+            "link image code fullscreen imageupload"
+        ],
+        toolbar: "undo redo | bold italic | bullist numlist outdent indent | link image | imageupload | code | fullscreen",
+        relative_urls: false
+    });
+    </script>
+    <textarea></textarea>
 </div>
 @endsection

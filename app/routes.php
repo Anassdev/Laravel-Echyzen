@@ -27,3 +27,11 @@ Route::controller('auth', 'AuthController',
     )
 );
 
+Route::resource('news', 'NewsController');
+
+
+//TODO a effacer
+Route::get('up', function() {
+   return View::make('_image-dialog');
+});
+Route::post('up', 'CustomController@imageUpload');
