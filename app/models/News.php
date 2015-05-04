@@ -10,4 +10,9 @@ class News extends Eloquent {
     {
         return $this->belongsTo('Image');
     }
+
+    public function motcles()
+    {
+        return $this->belongsToMany('Motcle', 'news_motcle');
+    }
 }

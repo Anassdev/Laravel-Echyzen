@@ -24,6 +24,12 @@ class DatabaseSeeder extends Seeder {
         $this->call('NewsTableSeeder');
         $this->command->info('News table seeded!');
 
+        $this->call('MotCleTableSeeder');
+        $this->command->info('MotCle table seeded!');
+
+        $this->call('NewsMotCleTableSeeder');
+        $this->command->info('NewsMotCle table seeded!');
+
         DB::statement('SET FOREIGN_KEY_CHECKS=1;');
 	}
 
