@@ -64,6 +64,10 @@
                     {{--Ecrit le  {{ date('d/m/Y à  H:i', $new->created_at) }} --}}
                     <span class="news_footer_mot_cle">
                         Mots-Clés :
+
+                        @foreach($new->motcles as $m)
+                            #{{ $m->nom }}
+                        @endforeach
                         {{--
                         {% for motcle in entity.motcles %}
                             <a class="link_keyword" href="{{ path('news_by_motcle', {'id': motcle.id}) }}"><span>{{ '#' ~ motcle.nom }}</span></a>
@@ -78,6 +82,9 @@
 @endforeach
 
 @foreach($count as $c)
+    <p>{{ $c->count }} : {{ $c->nom }}</p>
+@endforeach
+@foreach($countmotcle as $c)
     <p>{{ $c->count }} : {{ $c->nom }}</p>
 @endforeach
 
