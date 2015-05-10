@@ -1,5 +1,4 @@
 <?php
-
 class Motcle extends Eloquent {
     public function news()
     {

@@ -91,3 +91,5 @@ require app_path().'/filters.php';
 */
 
 require app_path().'/blade_extensions.php';
+
+require app_path().'/repositories/NewsRepository.php';

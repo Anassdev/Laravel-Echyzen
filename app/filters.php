@@ -43,7 +43,9 @@ Route::filter('auth', function()
 		}
 		else
 		{
-			return Redirect::guest('login');
+			return Redirect::guest('auth/login');
+            /*return Redirect::back()
+                ->with('flash_notice', 'Vous n\'avez pas l\'autorisation vous devez être connecté');*/
 		}
 	}
 });

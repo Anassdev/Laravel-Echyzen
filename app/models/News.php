@@ -1,5 +1,8 @@
 <?php
 
+namespace App\Model;
+
+use Eloquent;
 class News extends Eloquent {
     public function rubrique()
     {
