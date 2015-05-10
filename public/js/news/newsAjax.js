@@ -104,7 +104,7 @@ jQuery(document).ready(function ($) {
 			$('body').delegate(that.baliseShowMenu,'click',function(e) {
 				newsId = this.value;
 				var url = Routing.generate('news_create_commentaire', { id: this.value });/*'{{ path("news_create_commentaire", {'id': 'id'}) }}'; */
-				alert(url);
+				//alert(url);
                 $(that.baliseMenuContainer).html('<div class="' + that.classLoading + '"></div>');
                 $.ajax({
                     type: 'GET',

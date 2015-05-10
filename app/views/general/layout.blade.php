@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="EchyzenApp">
+<html>
 	<head>
 		<title>Echyzen - Portfolio @yield('title')</title>
 		<meta name="description" content="portofolio, Tutoriels/astuces et galerie 3D/2D!!!" />
@@ -23,10 +23,7 @@
 			<meta name="msapplication-TileImage" content="{{ asset('images/icon_microsoft.png') }}" />
 			<link rel="apple-touch-icon" href= "{{ asset('js/modernizr.custom.js') }}" />
 
-            <!-- Angular JavaScript -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-resource.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.15/angular-cookies.min.js"></script>
+
 		@show
 	</head>
 
@@ -60,7 +57,13 @@
 			{{-- Js de FancyBox --}}
 			<script src="{{ asset('js/fancybox.js') }}" type="text/javascript" ></script>
 			<script src="{{ asset('js/jquery.fancybox.pack.js') }}" type="text/javascript" ></script>
-
+			
+			{{-- Js Routing --}}
+			<script src="{{ asset('js/laroute.js') }}"></script>
+			<script>
+				 console.log(laroute.route('auth.get.login'));
+				// alert(laroute.route('news.index'));
+			</script>
 		@show
 	</body>
 

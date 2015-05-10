@@ -1,7 +1,27 @@
 <?php
 
-class NewsController extends \BaseController {
 
+
+use App\Repositories\NewsRepository;
+use App\Model\News;
+
+class NewsController extends \BaseController {
+    /**
+     * Repository instance.
+     *
+     */
+    protected $newsRepository;
+    /**
+     * Create a new NewsController controller instance.
+     *
+     * @param  App\Repositories\NewsRepository $newsRepository
+     * @return void
+     */
+    public function __construct(NewsRepository $newsRepository)
+    {
+        $this->newsRepository = $newsRepository;
+        $this->beforeFilter('auth', array('except' => 'index'));
+    }
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -9,20 +29,24 @@ class NewsController extends \BaseController {
 	 */
 	public function index()
 	{
-        $array['news'] = News::join('images as nImage', 'nImage.id', '=', 'news.image_id')
+
+        /*News::join('images as nImage', 'nImage.id', '=', 'news.image_id')
         //->selectRaw('images.alt as lol, images.url as XD, images.id as lil')
         ->join('rubriques', 'rubriques.id', '=', 'news.rubrique_id')
         ->join('images as rImage', 'rImage.id', '=', 'rubriques.image_id')
-        /*->join('news_motcle as nm','nm.news_id', '=', 'news.id' )
-        ->join('motcles', 'motcles.id', '=', 'nm.motcle_id')*/
+        //->join('news_motcle as nm','nm.news_id', '=', 'news.id' )
+        //->join('motcles', 'motcles.id', '=', 'nm.motcle_id')
         ->with('motcles')
         ->orderBy('news.created_at')->where('publication','=',1)
-        ->select(/*'motcles.nom',*/ 'nImage.alt as nAlt', 'nImage.url as nUrl',
+        ->select(//'motcles.nom',
+            'nImage.alt as nAlt', 'nImage.url as nUrl',
             'rImage.alt as rAlt', 'rImage.url as rUrl',
             'news.id', 'news.intro', 'news.titre', 'news.contenu', 'news.created_at', 'news.updated_at'
         )
-        ->get();
+        ->get();*/
             //die($array['news'][0]->motcles);
+        $array['news'] =  $this->newsRepository->all();
+
         $array['count'] = News::join('rubriques', 'rubriques.id', '=', 'news.rubrique_id')
             ->selectRaw( 'rubriques.nom, count(*) as count')
             ->groupBy('rubriques.id')->get();
@@ -43,6 +67,10 @@ class NewsController extends \BaseController {
             ->get()
             ->toArray();
 
+        if (Request::wantsJson()) {
+
+            return Response::json($array);
+        }
         //die(var_dump($array['lol']));
             //->lists('count', 'date');
 

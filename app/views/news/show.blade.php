@@ -66,7 +66,10 @@
                         Mots-Clés :
 
                         @foreach($new->motcles as $m)
-                            #{{ $m->nom }}
+
+                            <a class="link_keyword" href="news_by_motcle/{{ $m->id }}"><span>{{ '#' . $m->nom }}</span></a>
+                            {{-- '  ' --}}
+
                         @endforeach
                         {{--
                         {% for motcle in entity.motcles %}
